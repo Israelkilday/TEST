@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-modal";
+import ModalDetails from "../components/ModalDetails";
 
 Modal.setAppElement("body");
 
@@ -52,10 +53,7 @@ export default function Home() {
         <h2 className="text-center text-gray-500">Suas tarefas de hoje</h2>
       </section>
 
-      <button
-        onClick={openModal}
-        className="w-full rounded-lg bg-[linear-gradient(90deg,#0796D3_0%,#53C0F0_68.65%)] px-6 py-4 text-center font-medium text-white"
-      >
+      <button onClick={openModal} className="add_btn">
         Adicionar nova tarefa
       </button>
 
@@ -66,7 +64,9 @@ export default function Home() {
           onRequestClose={closeModal}
           contentLabel="To do list"
           className="h-full w-full bg-white outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-h-[500px] lg:max-w-[800px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-[30px]"
-        />
+        >
+          <ModalDetails />
+        </Modal>
       )}
     </main>
   );

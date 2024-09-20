@@ -17,6 +17,12 @@
   }
 }
 
-body {
-  background: var(--background);
+@layer base {
+  body {
+    background: var(--background);
+  }
+
+  .add_btn {
+    @apply w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#0796D3_0%,#53C0F0_68.65%)] px-6 py-4 text-center font-medium text-white;
+  }
 }
