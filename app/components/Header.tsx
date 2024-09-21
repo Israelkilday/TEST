@@ -23,7 +23,7 @@ const Header = () => {
           Bem vindo de volta, Usuário
         </h1>
 
-        <p className="font-normal text-gray-500">{currentDate}</p>
+        <p className="text-gray-500">{currentDate}</p>
       </section>
     </main>
   );
