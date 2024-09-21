@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import Header from "../components/Header";
 import ModalDelete from "../components/ModalDelete";
@@ -28,6 +28,16 @@ export default function Home() {
   const [modalType, setModalType] = useState<"details" | "delete" | null>(null);
   const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
 
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+
+    if (storedTasks) {
+      const parsedTasks = JSON.parse(storedTasks);
+      setTasks(parsedTasks);
+      setCheckedTasks(new Array(parsedTasks.length).fill(false));
+    }
+  }, []);
+
   const openModal = (type: "details" | "delete", taskId?: number) => {
     setModalType(type);
 
@@ -45,18 +55,24 @@ export default function Home() {
   const addTask = () => {
     if (newTask.trim()) {
       const newId = Date.now();
-      setTasks((prevTasks) => [...prevTasks, { id: newId, text: newTask }]);
+      const updatedTasks = [...tasks, { id: newId, text: newTask }];
+
+      setTasks(updatedTasks);
       setCheckedTasks((prevChecked) => [...prevChecked, false]);
       setNewTask("");
+
       closeModal();
+
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
   };
 
   const deleteTask = () => {
     if (taskToDelete !== null) {
-      setTasks((prevTasks) =>
-        prevTasks.filter((task) => task.id !== taskToDelete),
-      );
+      const updatedTasks = tasks.filter((task) => task.id !== taskToDelete);
+
+      setTasks(updatedTasks);
+
       closeModal();
     }
   };
