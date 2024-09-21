@@ -3,9 +3,6 @@ import { MouseEventHandler } from "react";
 interface ModalDeleteProps {
   closeModal: MouseEventHandler<HTMLButtonElement>;
   deleteTask: () => void;
-  // addTask: MouseEventHandler<HTMLButtonElement>;
-  // setNewTask: Dispatch<SetStateAction<string>>;
-  // newTask: string;
 }
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({
@@ -22,7 +19,7 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
         </p>
       </div>
 
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 lg:flex-row">
         <button
           onClick={deleteTask}
           className="w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#D30707_0%,#F05353_68.65%)] px-6 py-4 text-center font-medium text-white"
@@ -30,10 +27,7 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
           Deletar
         </button>
 
-        <button
-          onClick={closeModal}
-          className="w-full cursor-pointer rounded-lg bg-[#e7eefb] px-6 py-4 text-center font-medium"
-        >
+        <button onClick={closeModal} className="cancel_btn">
           Cancelar
         </button>
       </section>

@@ -20,13 +20,12 @@ const config: Config = {
       },
     },
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      colors: {},
       fontFamily: {
         primary: "var(--font-inter-tight)",
-        logoGuys: "var(--font-orbitron)",
+      },
+      boxShadow: {
+        custom: "0px 24px 48px -12px rgba(16, 24, 40, 0.18)",
       },
     },
   },

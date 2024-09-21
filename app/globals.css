@@ -3,26 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
   --font-inter-tight: "Inter Tight", sans-serif;
-  --font-orbitron: "Orbitron", sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 @layer base {
-  body {
-    background: var(--background);
-  }
-
   .add_btn {
     @apply w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#0796D3_0%,#53C0F0_68.65%)] px-6 py-4 text-center font-medium text-white;
+  }
+
+  .cancel_btn {
+    @apply w-full cursor-pointer rounded-lg bg-[#e7eefb] px-6 py-4 text-center font-medium;
   }
 }

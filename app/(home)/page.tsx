@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-modal";
-import ModalDetails from "../components/ModalDetails";
 import Header from "../components/Header";
 import ModalDelete from "../components/ModalDelete";
+import ModalAddTasks from "../components/ModalAddTasks";
 
 interface Taskprops {
   id: number;
@@ -114,30 +114,32 @@ export default function Home() {
       <Header />
 
       {/* Tarefas pendentes */}
-      <section className="my-6 rounded-2xl border border-solid p-8 shadow-sm">
+      <section className="my-6 flex-col items-center justify-center rounded-2xl border border-solid p-8 shadow-sm lg:mx-auto lg:mt-10 lg:flex lg:w-[450px]">
         {(tasks.length === 0 ||
           checkedTasks.some((checked) => !checked) ||
           !checkedTasks.some((checked) => checked)) && (
-          <>
+          <div className="lg:w-full">
             <h2 className="pb-6 text-center text-gray-500">
               Suas tarefas de hoje
             </h2>
             {renderTasks(false)}
-          </>
+          </div>
         )}
         {checkedTasks.some((checked) => checked) && (
-          <>
+          <div className="lg:w-full">
             <h2 className="py-6 text-center text-gray-500">
               Suas tarefas finalizadas
             </h2>
             {renderTasks(true)}
-          </>
+          </div>
         )}
       </section>
 
-      <button onClick={() => openModal("details")} className="add_btn">
-        Adicionar nova tarefa
-      </button>
+      <div className="items-center lg:mx-auto lg:w-[450px]">
+        <button onClick={() => openModal("details")} className="add_btn">
+          Adicionar nova tarefa
+        </button>
+      </div>
 
       {modal && (
         <Modal
@@ -145,10 +147,10 @@ export default function Home() {
           style={modaStyles}
           onRequestClose={closeModal}
           contentLabel="To do list"
-          className="h-full w-full bg-white outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-h-[500px] lg:max-w-[800px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-[30px]"
+          className={`h-full w-full bg-white outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-w-[450px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl ${modalType === "delete" ? "lg:max-h-[232px]" : "lg:max-h-[286px]"}`}
         >
           {modalType === "details" && (
-            <ModalDetails
+            <ModalAddTasks
               closeModal={closeModal}
               newTask={newTask}
               setNewTask={setNewTask}

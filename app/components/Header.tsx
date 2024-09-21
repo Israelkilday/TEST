@@ -9,8 +9,8 @@ const Header = () => {
   });
 
   return (
-    <main>
-      <section className="border-b border-solid pb-5">
+    <header>
+      <section className="justify-between border-b border-solid pb-5 lg:mx-14 lg:flex lg:pb-4">
         <Image
           src={"/logo.png"}
           width={150}
@@ -19,13 +19,13 @@ const Header = () => {
           className="mb-2"
         />
 
-        <h1 className="pb-1 font-primary font-medium">
+        <h1 className="pb-1 font-primary text-2xl font-medium lg:pt-1">
           Bem vindo de volta, Usuário
         </h1>
 
-        <p className="text-gray-500">{currentDate}</p>
+        <p className="text-base text-gray-500 lg:pt-2">{currentDate}</p>
       </section>
-    </main>
+    </header>
   );
 };
 
