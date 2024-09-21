@@ -28,16 +28,6 @@ export default function Home() {
   const [modalType, setModalType] = useState<"details" | "delete" | null>(null);
   const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
 
-  useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
-
-    if (storedTasks) {
-      const parsedTasks = JSON.parse(storedTasks);
-      setTasks(parsedTasks);
-      setCheckedTasks(new Array(parsedTasks.length).fill(false));
-    }
-  }, []);
-
   const openModal = (type: "details" | "delete", taskId?: number) => {
     setModalType(type);
 
@@ -81,7 +71,24 @@ export default function Home() {
     const updatedCheckedTasks = [...checkedTasks];
     updatedCheckedTasks[index] = !updatedCheckedTasks[index];
     setCheckedTasks(updatedCheckedTasks);
+
+    const updatedTasks = tasks.map((task, i) => ({
+      ...task,
+      completed: updatedCheckedTasks[i],
+    }));
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+
+    if (storedTasks) {
+      const parsedTasks = JSON.parse(storedTasks);
+      setTasks(parsedTasks);
+      setCheckedTasks(parsedTasks.map((task) => task.completed || false));
+    }
+  }, []);
 
   const renderTasks = (isCompleted: boolean) => {
     return (
