@@ -108,7 +108,11 @@ export default function Home() {
                   />
                 </button>
 
-                <p className="mb-1">{task.text}</p>
+                <p
+                  className={`mb-1 ${isCompleted ? "text-gray-500 line-through" : ""}`}
+                >
+                  {task.text}
+                </p>
               </div>
 
               <button onClick={() => openModal("delete", task.id)}>

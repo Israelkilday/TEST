@@ -19,11 +19,11 @@ const Header = () => {
           className="mb-2"
         />
 
-        <h1 className="pb-1 font-primary text-2xl font-medium lg:pt-1">
+        <h1 className="pb-1 font-primary font-medium lg:pt-1 lg:text-2xl">
           Bem vindo de volta, Usuário
         </h1>
 
-        <p className="text-base text-gray-500 lg:pt-2">{currentDate}</p>
+        <p className="text-gray-500 lg:pt-2">{currentDate}</p>
       </section>
     </header>
   );
