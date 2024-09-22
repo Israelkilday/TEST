@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import Header from "../components/Header";
 import ModalDelete from "../components/ModalDelete";
 import ModalAddTasks from "../components/ModalAddTasks";
+import ModalUser from "../components/ModalUser";
 
 interface Taskprops {
   id: number;
@@ -22,13 +23,38 @@ const modaStyles = {
 
 export default function Home() {
   const [modal, setModal] = useState(false);
+  const [userModal, setUserModal] = useState(false);
   const [tasks, setTasks] = useState<Taskprops[]>([]);
   const [newTask, setNewTask] = useState<string>("");
   const [checkedTasks, setCheckedTasks] = useState<boolean[]>([]);
   const [modalType, setModalType] = useState<"details" | "delete" | null>(null);
   const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
+  const [userName, setUserName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedUserName = localStorage.getItem("userName");
+    const storedTasks = localStorage.getItem("tasks");
+
+    if (storedUserName) {
+      setUserName(storedUserName);
+    } else {
+      setUserModal(true);
+    }
+
+    if (storedTasks) {
+      const parsedTasks = JSON.parse(storedTasks);
+      setTasks(parsedTasks);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setCheckedTasks(parsedTasks.map((task: any) => task.completed || false));
+    }
+  }, []);
 
   const openModal = (type: "details" | "delete", taskId?: number) => {
+    if (!userName) {
+      setUserModal(true);
+      return;
+    }
+
     setModalType(type);
 
     if (type === "delete" && taskId !== undefined) {
@@ -147,9 +173,15 @@ export default function Home() {
     );
   };
 
+  const handleRegisterUser = (name: string) => {
+    setUserName(name);
+    localStorage.setItem("userName", name);
+    setUserModal(false);
+  };
+
   return (
     <main className="container py-6">
-      <Header />
+      <Header userName={userName} />
 
       {/* Tarefas pendentes */}
       <section className="my-6 flex-col items-center justify-center rounded-2xl border border-solid p-8 shadow-sm lg:mx-auto lg:mt-10 lg:flex lg:w-[450px]">
@@ -185,7 +217,7 @@ export default function Home() {
           style={modaStyles}
           onRequestClose={closeModal}
           contentLabel="To do list"
-          className={`h-full w-full bg-white outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-w-[450px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl ${modalType === "delete" ? "lg:max-h-[232px]" : "lg:max-h-[286px]"}`}
+          className={`h-full w-full bg-white shadow-md outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-w-[450px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl ${modalType === "delete" ? "lg:max-h-[232px]" : "lg:max-h-[286px]"}`}
         >
           {modalType === "details" && (
             <ModalAddTasks
@@ -199,6 +231,20 @@ export default function Home() {
           {modalType === "delete" && (
             <ModalDelete closeModal={closeModal} deleteTask={deleteTask} />
           )}
+        </Modal>
+      )}
+
+      {userModal && (
+        <Modal
+          isOpen={userModal}
+          style={modaStyles}
+          onRequestClose={() => setUserModal(false)}
+          contentLabel="Registro de Usuário"
+          className="h-full w-full bg-white shadow-md outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-h-[286px] lg:max-w-[450px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl"
+        >
+          <ModalUser
+            registerUser={handleRegisterUser} // Passa a função para registrar o nome
+          />
         </Modal>
       )}
     </main>

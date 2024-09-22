@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-const Header = () => {
+interface HeaderProps {
+  userName: string | null;
+}
+
+const Header: React.FC<HeaderProps> = ({ userName }) => {
   const currentDate = new Date().toLocaleDateString("pt-BR", {
     weekday: "long",
     year: "numeric",
@@ -20,7 +24,7 @@ const Header = () => {
         />
 
         <h1 className="pb-1 font-primary font-medium lg:pt-1 lg:text-2xl">
-          Bem vindo de volta, Usuário
+          Bem vindo de volta, {userName}
         </h1>
 
         <p className="text-gray-500 lg:pt-2">{currentDate}</p>
