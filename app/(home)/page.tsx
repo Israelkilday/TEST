@@ -60,8 +60,18 @@ export default function Home() {
   const deleteTask = () => {
     if (taskToDelete !== null) {
       const updatedTasks = tasks.filter((task) => task.id !== taskToDelete);
+      const updatedCheckedTasks = updatedTasks.map(
+        (task) => checkedTasks[tasks.findIndex((t) => t.id === task.id)],
+      );
 
       setTasks(updatedTasks);
+      setCheckedTasks(updatedCheckedTasks);
+
+      const taskStore = updatedTasks.map((task, index) => ({
+        ...task,
+        completed: updatedCheckedTasks[index],
+      }));
+      localStorage.setItem("tasks", JSON.stringify(taskStore));
 
       closeModal();
     }
@@ -86,7 +96,8 @@ export default function Home() {
     if (storedTasks) {
       const parsedTasks = JSON.parse(storedTasks);
       setTasks(parsedTasks);
-      setCheckedTasks(parsedTasks.map((task) => task.completed || false));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setCheckedTasks(parsedTasks.map((task: any) => task.completed || false));
     }
   }, []);
 
