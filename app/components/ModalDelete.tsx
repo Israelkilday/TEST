@@ -22,7 +22,7 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
       <section className="flex flex-col gap-4 lg:flex-row">
         <button
           onClick={deleteTask}
-          className="w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#D30707_0%,#F05353_68.65%)] px-6 py-4 text-center font-medium text-white"
+          className="w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#D30707_0%,#F05353_68.65%)] px-6 py-4 text-center font-medium text-white duration-150 hover:bg-[linear-gradient(90deg,#A00606_0%,#D44141_68.65%)]"
         >
           Deletar
         </button>

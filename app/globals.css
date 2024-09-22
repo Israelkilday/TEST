@@ -8,10 +8,10 @@
 
 @layer base {
   .add_btn {
-    @apply w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#0796D3_0%,#53C0F0_68.65%)] px-6 py-4 text-center font-medium text-white;
+    @apply w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#0796D3_0%,#53C0F0_68.65%)] px-6 py-4 text-center font-medium text-white duration-150 hover:bg-[linear-gradient(90deg,#056894_0%,#3A9CBC_68.65%)];
   }
 
   .cancel_btn {
-    @apply w-full cursor-pointer rounded-lg bg-[#e7eefb] px-6 py-4 text-center font-medium;
+    @apply w-full cursor-pointer rounded-lg bg-[#e7eefb] px-6 py-4 text-center font-medium duration-150 hover:bg-[#c8d7f3];
   }
 }
