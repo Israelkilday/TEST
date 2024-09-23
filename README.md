@@ -4,7 +4,7 @@
 
 <div align="center"><br>
 
-**_[TEST TÉCNICO - TO DO LIST]()_** Este é um teste técnoco que conclui para uma vaga de desenvolvedor front-end júnior. Aplicação de To-Do List desenvolvida utilizando o Next.js App Router e SCSS para estilização, com layout responsivo e mobile-friendly. Além disso, ao retornar à aplicação, o nome do usuário é exibido em uma mensagem de boas-vindas personalizada, como: "Bem-vindo de volta, [nome do usuário]". Todos os dados de tarefas e o nome do usuário são persistidos no LocalStorage, garantindo que as informações não sejam perdidas ao recarregar a página.
+**_[TEST TÉCNICO - TO DO LIST]()_** Este é um teste técnico que conclui para uma vaga de desenvolvedor front-end júnior. Aplicação de To-Do List desenvolvida utilizando o Next.js App Router e SCSS para estilização, com layout responsivo e mobile-friendly. Além disso, ao retornar à aplicação, o nome do usuário é exibido em uma mensagem de boas-vindas personalizada, como: "Bem-vindo de volta, [nome do usuário]". Todos os dados de tarefas e o nome do usuário são persistidos no LocalStorage, garantindo que as informações não sejam perdidas ao recarregar a página.
 
  </div>
 
