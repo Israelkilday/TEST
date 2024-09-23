@@ -201,7 +201,6 @@ export default function Home() {
         )}
       </section>
 
-      {/* <div className="items-center lg:mx-auto lg:w-[450px]"> */}
       <div className={styles.box_button}>
         <button onClick={() => openModal("details")} className={styles.add_btn}>
           Adicionar nova tarefa
@@ -239,9 +238,7 @@ export default function Home() {
           contentLabel="Registro de Usuário"
           className="h-full w-full bg-white shadow-md outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-h-[286px] lg:max-w-[450px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl"
         >
-          <ModalUser
-            registerUser={handleRegisterUser} // Passa a função para registrar o nome
-          />
+          <ModalUser registerUser={handleRegisterUser} />
         </Modal>
       )}
     </main>
