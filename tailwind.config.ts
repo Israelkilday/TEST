@@ -24,9 +24,6 @@ const config: Config = {
       fontFamily: {
         primary: "var(--font-inter-tight)",
       },
-      boxShadow: {
-        custom: "0px 24px 48px -12px rgba(16, 24, 40, 0.18)",
-      },
     },
   },
 

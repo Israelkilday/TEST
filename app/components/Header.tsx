@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./Header.module.scss";
 
 interface HeaderProps {
   userName: string | null;
@@ -14,20 +15,18 @@ const Header: React.FC<HeaderProps> = ({ userName }) => {
 
   return (
     <header>
-      <section className="justify-between border-b border-solid pb-5 lg:mx-14 lg:flex lg:pb-4">
+      <section className={styles.section}>
         <Image
           src={"/logo.png"}
           width={150}
           height={36}
           alt="logo"
-          className="mb-2"
+          className={styles.logo}
         />
 
-        <h1 className="pb-1 font-primary font-medium lg:pt-1 lg:text-2xl">
-          Bem vindo de volta, {userName}
-        </h1>
+        <h1 className={styles.heading}>Bem-vindo de volta, {userName}</h1>
 
-        <p className="text-gray-500 lg:pt-2">{currentDate}</p>
+        <p className={styles.date}>{currentDate}</p>
       </section>
     </header>
   );

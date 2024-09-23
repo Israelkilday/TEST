@@ -1,0 +1,63 @@
+.box_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+}
+
+.box_header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.p {
+  padding-bottom: 2rem;
+  color: #6b7280;
+}
+
+.section_button {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.btn_delete {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #d30707 0%, #f05353 68.65%);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  transition: background 0.15s;
+
+  &:hover {
+    background: linear-gradient(90deg, #a00606 0%, #d44141 68.65%);
+  }
+}
+
+.cancel_btn {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: #e7eefb;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #c8d7f3;
+  }
+}

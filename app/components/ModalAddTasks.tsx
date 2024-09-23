@@ -1,4 +1,5 @@
 import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+import styles from "./ModalAddTasks.module.scss";
 
 interface ModalDetailsProps {
   closeModal: MouseEventHandler<HTMLButtonElement>;
@@ -14,10 +15,10 @@ const ModalAddTasks: React.FC<ModalDetailsProps> = ({
   addTask,
 }) => {
   return (
-    <main className="container py-6">
-      <h2 className="text-2xl font-medium">Nova tarefa</h2>
+    <main className={styles.box_container}>
+      <h2 className={styles.header}>Nova tarefa</h2>
 
-      <section className="flex flex-col gap-2 pt-6">
+      <section className={styles.section}>
         <span>Título</span>
         <input
           type="text"
@@ -25,16 +26,16 @@ const ModalAddTasks: React.FC<ModalDetailsProps> = ({
           placeholder="Digite"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          className="rounded-lg border px-4 py-3 outline-none"
+          className={styles.input}
         />
       </section>
 
-      <section className="mt-8 flex flex-col gap-4 lg:flex-row">
-        <button onClick={addTask} className="add_btn">
+      <section className={styles.section_button}>
+        <button onClick={addTask} className={styles.add_btn}>
           Adicionar
         </button>
 
-        <button onClick={closeModal} className="cancel_btn">
+        <button onClick={closeModal} className={styles.cancel_btn}>
           Cancelar
         </button>
       </section>

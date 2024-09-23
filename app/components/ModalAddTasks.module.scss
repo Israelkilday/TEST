@@ -1,0 +1,70 @@
+.box_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+}
+
+.input {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  outline: none;
+}
+
+.section_button {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+  }
+}
+
+.add_btn {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  transition: background 0.15s;
+
+  &:hover {
+    background: linear-gradient(90deg, #056894 0%, #3a9cbc 68.65%);
+  }
+}
+
+.cancel_btn {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: #e7eefb;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #c8d7f3;
+  }
+}

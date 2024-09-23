@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import styles from "./ModalDelete.module.scss";
 
 interface ModalDeleteProps {
   closeModal: MouseEventHandler<HTMLButtonElement>;
@@ -10,24 +11,21 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
   deleteTask,
 }) => {
   return (
-    <main className="container py-6">
-      <div className="flex flex-col gap-6">
-        <h2 className="text-2xl font-medium">Deletar tarefa</h2>
+    <main className={styles.box_container}>
+      <div className={styles.box_header}>
+        <h2 className={styles.h2}>Deletar tarefa</h2>
 
-        <p className="pb-8 text-gray-500">
+        <p className={styles.p}>
           Tem certeza que você deseja deletar esta tarefa?
         </p>
       </div>
 
-      <section className="flex flex-col gap-4 lg:flex-row">
-        <button
-          onClick={deleteTask}
-          className="w-full cursor-pointer rounded-lg bg-[linear-gradient(90deg,#D30707_0%,#F05353_68.65%)] px-6 py-4 text-center font-medium text-white duration-150 hover:bg-[linear-gradient(90deg,#A00606_0%,#D44141_68.65%)]"
-        >
+      <section className={styles.section_button}>
+        <button onClick={deleteTask} className={styles.btn_delete}>
           Deletar
         </button>
 
-        <button onClick={closeModal} className="cancel_btn">
+        <button onClick={closeModal} className={styles.cancel_btn}>
           Cancelar
         </button>
       </section>
