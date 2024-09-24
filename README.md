@@ -51,6 +51,7 @@
 - **_[Next.JS](https://nextjs.org/)_**
 - **_[App Router](https://nextjs.org/docs/app)_**
 - **_[React.js](https://pt-br.legacy.reactjs.org/)_**
+- **_[React-Modal](https://www.npmjs.com/package/react-modal)_**
 - **_[SCSS](https://sass-lang.com/)_**
 - **_[LocalStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage/)_**
 - **_[Git](https://www.git-scm.com/)_**
