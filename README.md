@@ -44,7 +44,7 @@
 - Marcar tarefas como concluídas.
 - Excluir tarefas.
 - Armazenar os dados das tarefas (concluídas ou pendentes) e o nome do usuário no LocalStorage.
-
+- Exibição da data e hora local atualizadas. 
 ## 🛠️ Principais Tecnologias
 
 - **_[Typescript](https://www.typescriptlang.org/)_**
